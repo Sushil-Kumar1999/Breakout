@@ -3,26 +3,17 @@
 [RequireComponent(typeof(Rigidbody2D))]
 public class BallBehaviour : MonoBehaviour
 {
-    [SerializeField]
-    private float ballInitialVelocity;
-    private float ballVelocity;
     public float ballLaunchForce;
     private Rigidbody2D ballRigidBody;
     private bool ballInPlay; // set to false if ball hits floor
-    public Transform paddle; 
+    public Transform paddle;
+    public Transform brickShatterEffect;
 
     public void Awake()
     {
         ballRigidBody = GetComponent<Rigidbody2D>();
-        ballVelocity = ballInitialVelocity;
     }
 
-    public void Start()
-    {
-       // ballRigidBody.AddForce(Vector2.up * 500);
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (!ballInPlay)
@@ -41,6 +32,8 @@ public class BallBehaviour : MonoBehaviour
     {
         if (collider.transform.tag == "Brick")
         {
+            Transform explosion = Instantiate(brickShatterEffect, collider.transform.position, collider.transform.rotation);
+            Destroy(explosion.gameObject, 2f);
             Destroy(collider.gameObject);
         }
     }

@@ -2962,9 +2962,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca3ae65662384f6409bd7031047674fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballInitialVelocity: 400
   ballLaunchForce: 400
   paddle: {fileID: 1178926889}
+  brickShatterEffect: {fileID: 2376634667693356984, guid: aa3b35e02c0449340b02b6aed72a7da8,
+    type: 3}
 --- !u!1001 &558255266193449653
 PrefabInstance:
   m_ObjectHideFlags: 0
