@@ -6,6 +6,7 @@ public class BallBehaviour : MonoBehaviour
     [SerializeField]
     private float ballInitialVelocity;
     private float ballVelocity;
+    public float ballLaunchForce;
     private Rigidbody2D ballRigidBody;
     private bool ballInPlay; // set to false if ball hits floor
     public Transform paddle; 
@@ -32,7 +33,7 @@ public class BallBehaviour : MonoBehaviour
         if (Input.GetButtonDown("Jump") && !ballInPlay) // if spacebar is pressed while ball is resting on paddle
         {
             ballInPlay = true;
-            ballRigidBody.AddForce(Vector2.up * 500);
+            ballRigidBody.AddForce(Vector2.up * ballLaunchForce);
         }
         
         //if (Input.GetButtonDown("Jump") && ballIsMoving == false)

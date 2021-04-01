@@ -6,9 +6,9 @@ public class PaddleBehaviour : MonoBehaviour
     [SerializeField]
     private float paddleSpeed;
     [SerializeField]
-    private float leftBorderWallPosition;
+    private float leftWallPosition;
     [SerializeField]
-    private float rightBorderWallPosition;
+    private float rightWallPosition;
 
     void Update()
     {
@@ -21,14 +21,14 @@ public class PaddleBehaviour : MonoBehaviour
 
         transform.Translate(Vector2.right * horizontalMovement * Time.deltaTime * paddleSpeed);
 
-        if (transform.position.x < leftBorderWallPosition)
+        if (transform.position.x < leftWallPosition)
         {
-            transform.position = new Vector2(leftBorderWallPosition, transform.position.y);
+            transform.position = new Vector2(leftWallPosition, transform.position.y);
         }
 
-        if (transform.position.x > rightBorderWallPosition)
+        if (transform.position.x > rightWallPosition)
         {
-            transform.position = new Vector2(rightBorderWallPosition, transform.position.y);
+            transform.position = new Vector2(rightWallPosition, transform.position.y);
         }
     }
 }
