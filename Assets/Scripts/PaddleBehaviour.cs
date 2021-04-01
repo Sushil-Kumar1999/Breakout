@@ -6,22 +6,30 @@ public class PaddleBehaviour : MonoBehaviour
     private Rigidbody2D paddleRigidBody;
     [SerializeField]
     private float paddleSpeed;
+    [SerializeField]
+    private float leftBorderWallPosition;
+    [SerializeField]
+    private float rightBorderWallPosition;
 
     private void Awake()
     {
         paddleRigidBody = GetComponent<Rigidbody2D>();
     }
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal"); //Get if Any Horizontal Keys pressed ((A or D) or (Left or Right) Buttons)
-        Vector2 movement = new Vector2(moveHorizontal, 0f); //Put moveHorizontal in a Vector2 Variable (x,y)...moveHorizontal will be the x axis
-        paddleRigidBody.velocity = movement * paddleSpeed;
+        float horizontalMovement = Input.GetAxis("Horizontal");
 
+        transform.Translate(Vector2.right * horizontalMovement * Time.deltaTime * paddleSpeed);
+
+        if (transform.position.x < leftBorderWallPosition)
+        {
+            transform.position = new Vector2(leftBorderWallPosition, transform.position.y);
+        }
+
+        if (transform.position.x > rightBorderWallPosition)
+        {
+            transform.position = new Vector2(rightBorderWallPosition, transform.position.y);
+        }
     }
 }
