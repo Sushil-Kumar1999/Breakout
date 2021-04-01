@@ -3,17 +3,18 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public bool gameOver;
 
     [SerializeField] private TextMeshProUGUI scoreDisplay;
     [SerializeField] private TextMeshProUGUI turnsDisplay;
     [SerializeField] private int totalTurns;
 
     private int currentScore;
-    private int currentTurnCount;
+    private int turns;
 
     private void Awake()
     {
-        currentTurnCount = totalTurns;
+        turns = totalTurns;
         currentScore = 0;
     }
 
@@ -33,9 +34,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         scoreDisplay.text = $"Score: {currentScore}";
-        turnsDisplay.text = $"Turns: {currentTurnCount}";
-
-        //UpdateTurns();
+        turnsDisplay.text = $"Turns: {turns}";
     }
 
     private void LoseTurn()
@@ -45,10 +44,15 @@ public class GameManager : MonoBehaviour
 
     public void UpdateTurns(int delta)
     {
-        currentTurnCount += delta;
+        turns += delta;
 
-        // check if currentTurnCount < 0
-        turnsDisplay.text = $"Turns: {currentTurnCount}";
+        if (turns <= 0)
+        {
+            turns = 0;
+            EndGame();
+        }
+
+        turnsDisplay.text = $"Turns: {turns}";
     }
 
     public void UpdateScore(int delta)
@@ -57,4 +61,8 @@ public class GameManager : MonoBehaviour
         scoreDisplay.text = $"Score: {currentScore}";
     }
 
+    private void EndGame()
+    {
+        gameOver = true;
+    }
 }

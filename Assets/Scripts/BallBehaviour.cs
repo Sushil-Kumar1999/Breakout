@@ -10,16 +10,23 @@ public class BallBehaviour : MonoBehaviour
     public static event System.Action OnBallHittingFloor;
     public static event System.Action<int> OnBallHittingBrick;
 
+    private GameManager gameManager;
     private Rigidbody2D ballRigidBody;
     private bool ballInPlay; // set to false if ball hits floor
 
-    public void Awake()
+    private void Awake()
     {
         ballRigidBody = GetComponent<Rigidbody2D>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
-    void Update()
+    private void Update()
     {
+        if (gameManager.gameOver)
+        {
+            return;
+        }
+        
         if (!ballInPlay)
         {
             transform.position = paddle.position; // respawn on top of paddle
@@ -32,20 +39,20 @@ public class BallBehaviour : MonoBehaviour
         }   
     }
 
-    public void OnCollisionEnter2D(Collision2D otherCollider)
+    private void OnCollisionEnter2D(Collision2D otherCollider)
     {
         if (otherCollider.transform.tag == "Brick")
         {
             Transform explosion = Instantiate(brickShatterEffect, otherCollider.transform.position, otherCollider.transform.rotation);
             Destroy(explosion.gameObject, 2f);
 
-            OnBallHittingBrick.Invoke(otherCollider.gameObject.GetComponent<BrickBehaviour>().points);
+            OnBallHittingBrick?.Invoke(otherCollider.gameObject.GetComponent<BrickBehaviour>().points);
 
             Destroy(otherCollider.gameObject);
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D otherCollider)
+    private void OnTriggerEnter2D(Collider2D otherCollider)
     {
         if(otherCollider.CompareTag("Floor"))
         {
