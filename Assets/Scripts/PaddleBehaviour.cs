@@ -3,7 +3,6 @@
 [RequireComponent(typeof(Rigidbody2D))]
 public class PaddleBehaviour : MonoBehaviour
 {
-    private Rigidbody2D paddleRigidBody;
     [SerializeField]
     private float paddleSpeed;
     [SerializeField]
@@ -11,12 +10,12 @@ public class PaddleBehaviour : MonoBehaviour
     [SerializeField]
     private float rightBorderWallPosition;
 
-    private void Awake()
+    void Update()
     {
-        paddleRigidBody = GetComponent<Rigidbody2D>();
+        MovePaddle();
     }
 
-    void Update()
+    private void MovePaddle()
     {
         float horizontalMovement = Input.GetAxis("Horizontal");
 
