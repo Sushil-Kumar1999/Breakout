@@ -4,10 +4,13 @@
 public class BallBehaviour : MonoBehaviour
 {
     public float ballLaunchForce;
-    private Rigidbody2D ballRigidBody;
-    private bool ballInPlay; // set to false if ball hits floor
     public Transform paddle;
     public Transform brickShatterEffect;
+
+    public static event System.Action OnBallHittingFloor;
+         
+    private Rigidbody2D ballRigidBody;
+    private bool ballInPlay; // set to false if ball hits floor
 
     public void Awake()
     {
@@ -18,7 +21,7 @@ public class BallBehaviour : MonoBehaviour
     {
         if (!ballInPlay)
         {
-            transform.position = paddle.position;
+            transform.position = paddle.position; // respawn on top of paddle
         }
 
         if (Input.GetButtonDown("Jump") && !ballInPlay) // if spacebar is pressed while ball is resting on paddle
@@ -42,8 +45,9 @@ public class BallBehaviour : MonoBehaviour
     {
         if(collider.CompareTag("Floor"))
         {
-            Debug.Log("Ball has hit Floor");
-            ballRigidBody.velocity = Vector2.zero;
+            OnBallHittingFloor?.Invoke();
+
+            ballRigidBody.velocity = Vector2.zero; // to reset momentum of ball and prevent it flying off
             ballInPlay = false;
         }
     }
