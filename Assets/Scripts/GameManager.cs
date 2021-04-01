@@ -20,11 +20,13 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         BallBehaviour.OnBallHittingFloor += LoseTurn;
+        BallBehaviour.OnBallHittingBrick += UpdateScore;
     }
 
     private void OnDisable()
     {
         BallBehaviour.OnBallHittingFloor -= LoseTurn;
+        BallBehaviour.OnBallHittingBrick -= UpdateScore;
     }
 
     // Start is called before the first frame update
@@ -47,6 +49,12 @@ public class GameManager : MonoBehaviour
 
         // check if currentTurnCount < 0
         turnsDisplay.text = $"Turns: {currentTurnCount}";
+    }
+
+    public void UpdateScore(int delta)
+    {
+        currentScore += delta;
+        scoreDisplay.text = $"Score: {currentScore}";
     }
 
 }

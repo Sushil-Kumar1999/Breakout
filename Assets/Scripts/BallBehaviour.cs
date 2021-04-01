@@ -8,7 +8,8 @@ public class BallBehaviour : MonoBehaviour
     public Transform brickShatterEffect;
 
     public static event System.Action OnBallHittingFloor;
-         
+    public static event System.Action<int> OnBallHittingBrick;
+
     private Rigidbody2D ballRigidBody;
     private bool ballInPlay; // set to false if ball hits floor
 
@@ -31,19 +32,22 @@ public class BallBehaviour : MonoBehaviour
         }   
     }
 
-    public void OnCollisionEnter2D(Collision2D collider)
+    public void OnCollisionEnter2D(Collision2D otherCollider)
     {
-        if (collider.transform.tag == "Brick")
+        if (otherCollider.transform.tag == "Brick")
         {
-            Transform explosion = Instantiate(brickShatterEffect, collider.transform.position, collider.transform.rotation);
+            Transform explosion = Instantiate(brickShatterEffect, otherCollider.transform.position, otherCollider.transform.rotation);
             Destroy(explosion.gameObject, 2f);
-            Destroy(collider.gameObject);
+
+            OnBallHittingBrick.Invoke(otherCollider.gameObject.GetComponent<BrickBehaviour>().points);
+
+            Destroy(otherCollider.gameObject);
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D collider)
+    public void OnTriggerEnter2D(Collider2D otherCollider)
     {
-        if(collider.CompareTag("Floor"))
+        if(otherCollider.CompareTag("Floor"))
         {
             OnBallHittingFloor?.Invoke();
 
