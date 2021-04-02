@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private int totalTurns;
     [SerializeField] private AudioClip ballHitBrickSFX;
+    [SerializeField] private AudioClip ballHitPaddleSFX;
 
     private AudioSource audioSource;
 
@@ -31,14 +32,16 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        BallBehaviour.OnBallHittingFloor += LoseTurn;
+        BallBehaviour.OnBallHittingFloor += ProcessOnBallHittingFloor;
         BallBehaviour.OnBallHittingBrick += ProcessOnBallHittingBrick;
+        BallBehaviour.OnBallHittingPaddle += ProcessOnBallHittingPaddle;
     }
 
     private void OnDisable()
     {
-        BallBehaviour.OnBallHittingFloor -= LoseTurn;
+        BallBehaviour.OnBallHittingFloor -= ProcessOnBallHittingFloor;
         BallBehaviour.OnBallHittingBrick -= ProcessOnBallHittingBrick;
+        BallBehaviour.OnBallHittingPaddle -= ProcessOnBallHittingPaddle;
     }
 
     // Start is called before the first frame update
@@ -46,11 +49,6 @@ public class GameManager : MonoBehaviour
     {
         scoreDisplay.text = $"Score: {currentScore}";
         turnsDisplay.text = $"Turns: {turns}";
-    }
-
-    private void LoseTurn()
-    {
-        UpdateTurns(-1);
     }
 
     public void UpdateTurns(int delta)
@@ -88,12 +86,21 @@ public class GameManager : MonoBehaviour
         gameOverPanel.SetActive(true);
     }
 
+    private void ProcessOnBallHittingFloor()
+    {
+        UpdateTurns(-1);
+    }
 
     private void ProcessOnBallHittingBrick(BrickBehaviour brick)
     {
         PlayBallHitBrickSFX();
         UpdateScore(brick.points);
         UpdateNumberOfBricks();
+    }
+
+    private void ProcessOnBallHittingPaddle()
+    {
+        PlayBallHitPaddleSFX();
     }
 
     private void UpdateNumberOfBricks()
@@ -111,4 +118,11 @@ public class GameManager : MonoBehaviour
         audioSource.clip = ballHitBrickSFX;
         audioSource.Play();
     }
+
+    private void PlayBallHitPaddleSFX()
+    {
+        audioSource.clip = ballHitPaddleSFX;
+        audioSource.Play();
+    }
+  
 }

@@ -7,6 +7,7 @@ public class BallBehaviour : MonoBehaviour
     public Transform paddle;
     public Transform brickShatterEffect;
 
+    public static event System.Action OnBallHittingPaddle;
     public static event System.Action OnBallHittingFloor;
     public static event System.Action<BrickBehaviour> OnBallHittingBrick;
 
@@ -49,6 +50,11 @@ public class BallBehaviour : MonoBehaviour
             OnBallHittingBrick?.Invoke(otherCollider.gameObject.GetComponent<BrickBehaviour>());
 
             Destroy(otherCollider.gameObject);
+        }
+
+        if (otherCollider.transform.CompareTag("Paddle"))
+        {
+            OnBallHittingPaddle?.Invoke();
         }
     }
 
