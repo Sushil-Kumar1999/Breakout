@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI scoreDisplay;
     [SerializeField] private TextMeshProUGUI turnsDisplay;
+    [SerializeField] private TextMeshProUGUI highScoreDisplay;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private int totalTurns;
     [SerializeField] private AudioClip ballHitBrickSFX;
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
     private int numberOfBricks; // number of bricks left in scene
     private int currentScore;
     private int turns;
+    private int currentHighScore;
 
     private const string GameScene = "Game";
     private const string StartMenu = "Menu";
@@ -28,6 +30,7 @@ public class GameManager : MonoBehaviour
         currentScore = 0;
         numberOfBricks = GameObject.FindGameObjectsWithTag("Brick").Length;
         audioSource = GetComponent<AudioSource>();
+        currentHighScore = PlayerPrefs.GetInt("HIGH_SCORE");
     }
 
     private void OnEnable()
@@ -84,6 +87,16 @@ public class GameManager : MonoBehaviour
     {
         gameOver = true;
         gameOverPanel.SetActive(true);
+
+        if (currentScore > currentHighScore)
+        {
+            PlayerPrefs.SetInt("HIGH_SCORE", currentScore);
+            highScoreDisplay.text = $"New High Score Achieved!\n {currentScore}";
+        }
+        else
+        {
+            highScoreDisplay.text = $"High Score: {currentHighScore}\nYour score: {currentScore}";
+        }
     }
 
     private void ProcessOnBallHittingFloor()
