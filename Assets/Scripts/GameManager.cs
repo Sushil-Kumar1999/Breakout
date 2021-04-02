@@ -88,6 +88,14 @@ public class GameManager : MonoBehaviour
         gameOverPanel.SetActive(true);
     }
 
+
+    private void ProcessOnBallHittingBrick(BrickBehaviour brick)
+    {
+        PlayBallHitBrickSFX();
+        UpdateScore(brick.points);
+        UpdateNumberOfBricks();
+    }
+
     private void UpdateNumberOfBricks()
     {
         numberOfBricks--;
@@ -96,13 +104,6 @@ public class GameManager : MonoBehaviour
         {
             EndGame();
         }
-    }
-
-    private void ProcessOnBallHittingBrick(BrickBehaviour brick)
-    {
-        PlayBallHitBrickSFX();
-        UpdateScore(brick.points);
-        UpdateNumberOfBricks();
     }
 
     private void PlayBallHitBrickSFX()

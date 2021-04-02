@@ -10,7 +10,6 @@ public class BallBehaviour : MonoBehaviour
     public static event System.Action OnBallHittingFloor;
     public static event System.Action<BrickBehaviour> OnBallHittingBrick;
 
-
     private GameManager gameManager;
     private Rigidbody2D ballRigidBody;
     private bool ballInPlay; // set to false if ball hits floor
