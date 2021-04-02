@@ -7,6 +7,7 @@ public class BallBehaviour : MonoBehaviour
     public Transform ballSpawnPosition;
     public Transform redExplosion;
     public Transform orangeExplosion;
+    public Transform greenExplosion;
 
     public static event System.Action OnBallHittingPaddle;
     public static event System.Action OnBallHittingFloor;
@@ -74,12 +75,16 @@ public class BallBehaviour : MonoBehaviour
         switch (otherCollider.transform.tag)
         {
             case "RedBrick" :
-                Transform explosionRed = Instantiate(redExplosion, otherCollider.transform.position, otherCollider.transform.rotation);
-                Destroy(explosionRed.gameObject, 2f);
+                Transform redColouredExplosion = Instantiate(redExplosion, otherCollider.transform.position, otherCollider.transform.rotation);
+                Destroy(redColouredExplosion.gameObject, 2f);
                 break;
             case "OrangeBrick":
-                Transform explosionOrange = Instantiate(orangeExplosion, otherCollider.transform.position, otherCollider.transform.rotation);
-                Destroy(explosionOrange.gameObject, 2f);
+                Transform orangeColouredExplosion = Instantiate(orangeExplosion, otherCollider.transform.position, otherCollider.transform.rotation);
+                Destroy(orangeColouredExplosion.gameObject, 2f);
+                break;
+            case "GreenBrick":
+                Transform greenColouredExplosion = Instantiate(greenExplosion, otherCollider.transform.position, otherCollider.transform.rotation);
+                Destroy(greenColouredExplosion.gameObject, 2f);
                 break;
         }
     }
