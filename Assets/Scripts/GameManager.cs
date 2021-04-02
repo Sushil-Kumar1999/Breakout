@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class GameManager : MonoBehaviour
 
     private int currentScore;
     private int turns;
+
+    private const string GameScene = "Game";
+    private const string StartMenu = "Menu";
 
     private void Awake()
     {
@@ -60,6 +64,16 @@ public class GameManager : MonoBehaviour
     {
         currentScore += delta;
         scoreDisplay.text = $"Score: {currentScore}";
+    }
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene(GameScene);
+    }
+
+    public void ReturnToStartMenu()
+    {
+        SceneManager.LoadScene(StartMenu);
     }
 
     private void EndGame()

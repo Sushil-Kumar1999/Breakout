@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 140958664}
   - component: {fileID: 140958663}
   m_Layer: 5
-  m_Name: QuitButton
+  m_Name: ReturnToStartMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -441,7 +441,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 328, y: -79}
-  m_SizeDelta: {x: 284.8872, y: 65.29639}
+  m_SizeDelta: {x: 526.2394, y: 79.08798}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &140958663
 MonoBehaviour:
@@ -485,7 +485,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 140958664}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2014858019}
+        m_MethodName: ReturnToStartMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &140958664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1162,7 +1173,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 826527708}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2014858019}
+        m_MethodName: PlayAgain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &826527708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3756,7 +3778,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Quit
+  m_text: RETURN TO START MENU
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -4023,7 +4045,7 @@ MonoBehaviour:
   scoreDisplay: {fileID: 1437416797}
   turnsDisplay: {fileID: 7568717}
   gameOverPanel: {fileID: 1141422611}
-  totalTurns: 3
+  totalTurns: 1
 --- !u!1 &2087220216
 GameObject:
   m_ObjectHideFlags: 0
