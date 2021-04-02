@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI scoreDisplay;
     [SerializeField] private TextMeshProUGUI turnsDisplay;
+    [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private int totalTurns;
 
     private int currentScore;
@@ -64,5 +65,6 @@ public class GameManager : MonoBehaviour
     private void EndGame()
     {
         gameOver = true;
+        gameOverPanel.SetActive(true);
     }
 }
