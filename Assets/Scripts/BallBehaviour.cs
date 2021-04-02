@@ -4,7 +4,7 @@
 public class BallBehaviour : MonoBehaviour
 {
     public float ballLaunchForce;
-    public Transform paddle;
+    public Transform ballSpawnPosition;
     public Transform brickShatterEffect;
 
     public static event System.Action OnBallHittingPaddle;
@@ -30,7 +30,7 @@ public class BallBehaviour : MonoBehaviour
         
         if (!ballInPlay)
         {
-            transform.position = paddle.position; // respawn on top of paddle
+            transform.position = ballSpawnPosition.position; // respawn on top of paddle
         }
 
         if (Input.GetButtonDown("Jump") && !ballInPlay) // if spacebar is pressed while ball is resting on paddle
