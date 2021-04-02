@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI turnsDisplay;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private int totalTurns;
+    private int numberOfBricks; // number of bricks left in scene
 
     private int currentScore;
     private int turns;
@@ -21,17 +22,20 @@ public class GameManager : MonoBehaviour
     {
         turns = totalTurns;
         currentScore = 0;
+        numberOfBricks = GameObject.FindGameObjectsWithTag("Brick").Length;
     }
 
     private void OnEnable()
     {
         BallBehaviour.OnBallHittingFloor += LoseTurn;
+        BallBehaviour.OnBallHittingBrick += UpdateNumberOfBricks;
         BallBehaviour.OnBallHittingBrick += UpdateScore;
     }
 
     private void OnDisable()
     {
         BallBehaviour.OnBallHittingFloor -= LoseTurn;
+        BallBehaviour.OnBallHittingBrick -= UpdateNumberOfBricks;
         BallBehaviour.OnBallHittingBrick -= UpdateScore;
     }
 
@@ -80,5 +84,15 @@ public class GameManager : MonoBehaviour
     {
         gameOver = true;
         gameOverPanel.SetActive(true);
+    }
+
+    private void UpdateNumberOfBricks(int points)
+    {
+        numberOfBricks--;
+
+        if (numberOfBricks <= 0)
+        {
+            EndGame();
+        }
     }
 }

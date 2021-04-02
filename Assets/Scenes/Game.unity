@@ -4045,7 +4045,7 @@ MonoBehaviour:
   scoreDisplay: {fileID: 1437416797}
   turnsDisplay: {fileID: 7568717}
   gameOverPanel: {fileID: 1141422611}
-  totalTurns: 1
+  totalTurns: 3
 --- !u!1 &2087220216
 GameObject:
   m_ObjectHideFlags: 0
