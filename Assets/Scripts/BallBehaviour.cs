@@ -8,6 +8,7 @@ public class BallBehaviour : MonoBehaviour
     public Transform redExplosion;
     public Transform orangeExplosion;
     public Transform greenExplosion;
+    public Transform yellowExplosion;
 
     public static event System.Action OnBallHittingPaddle;
     public static event System.Action OnBallHittingFloor;
@@ -85,6 +86,10 @@ public class BallBehaviour : MonoBehaviour
             case "GreenBrick":
                 Transform greenColouredExplosion = Instantiate(greenExplosion, otherCollider.transform.position, otherCollider.transform.rotation);
                 Destroy(greenColouredExplosion.gameObject, 2f);
+                break;
+            case "YellowBrick":
+                Transform yellowColouredExplosion = Instantiate(yellowExplosion, otherCollider.transform.position, otherCollider.transform.rotation);
+                Destroy(yellowColouredExplosion.gameObject, 2f);
                 break;
         }
     }

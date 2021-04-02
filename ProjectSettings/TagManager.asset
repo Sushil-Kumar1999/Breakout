@@ -12,6 +12,7 @@ TagManager:
   - RedBrick
   - OrangeBrick
   - GreenBrick
+  - YellowBrick
   layers:
   - Default
   - TransparentFX

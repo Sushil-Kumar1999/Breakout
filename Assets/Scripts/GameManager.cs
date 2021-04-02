@@ -57,7 +57,9 @@ public class GameManager : MonoBehaviour
     private int ComputeNumberOfBricks()
     {
         return GameObject.FindGameObjectsWithTag("RedBrick").Length +
-               GameObject.FindGameObjectsWithTag("OrangeBrick").Length;
+               GameObject.FindGameObjectsWithTag("OrangeBrick").Length +
+               GameObject.FindGameObjectsWithTag("GreenBrick").Length +
+               GameObject.FindGameObjectsWithTag("YellowBrick").Length;
     }
 
     public void UpdateTurns(int delta)
