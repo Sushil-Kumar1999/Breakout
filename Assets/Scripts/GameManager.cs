@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     {
         turns = totalTurns;
         currentScore = 0;
-        numberOfBricks = GameObject.FindGameObjectsWithTag("Brick").Length;
+        numberOfBricks = ComputeNumberOfBricks();
         audioSource = GetComponent<AudioSource>();
         currentHighScore = PlayerPrefs.GetInt("HIGH_SCORE");
     }
@@ -52,6 +52,12 @@ public class GameManager : MonoBehaviour
     {
         scoreDisplay.text = $"Score: {currentScore}";
         turnsDisplay.text = $"Turns: {turns}";
+    }
+
+    private int ComputeNumberOfBricks()
+    {
+        return GameObject.FindGameObjectsWithTag("RedBrick").Length +
+               GameObject.FindGameObjectsWithTag("OrangeBrick").Length;
     }
 
     public void UpdateTurns(int delta)

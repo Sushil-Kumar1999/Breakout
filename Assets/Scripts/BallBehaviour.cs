@@ -5,7 +5,8 @@ public class BallBehaviour : MonoBehaviour
 {
     public float ballLaunchForce;
     public Transform ballSpawnPosition;
-    public Transform brickShatterEffect;
+    public Transform redExplosion;
+    public Transform orangeExplosion;
 
     public static event System.Action OnBallHittingPaddle;
     public static event System.Action OnBallHittingFloor;
@@ -42,11 +43,10 @@ public class BallBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D otherCollider)
     {
-        if (otherCollider.transform.tag == "Brick")
+        if (otherCollider.transform.tag.Contains("Brick"))
         {
-            Transform explosion = Instantiate(brickShatterEffect, otherCollider.transform.position, otherCollider.transform.rotation);
-            Destroy(explosion.gameObject, 2f);
-
+            CreateExplosion(otherCollider);
+            
             OnBallHittingBrick?.Invoke(otherCollider.gameObject.GetComponent<BrickBehaviour>());
 
             Destroy(otherCollider.gameObject);
@@ -66,6 +66,21 @@ public class BallBehaviour : MonoBehaviour
 
             ballRigidBody.velocity = Vector2.zero; // to reset momentum of ball and prevent it flying off
             ballInPlay = false;
+        }
+    }
+
+    private void CreateExplosion(Collision2D otherCollider)
+    {
+        switch (otherCollider.transform.tag)
+        {
+            case "RedBrick" :
+                Transform explosionRed = Instantiate(redExplosion, otherCollider.transform.position, otherCollider.transform.rotation);
+                Destroy(explosionRed.gameObject, 2f);
+                break;
+            case "OrangeBrick":
+                Transform explosionOrange = Instantiate(orangeExplosion, otherCollider.transform.position, otherCollider.transform.rotation);
+                Destroy(explosionOrange.gameObject, 2f);
+                break;
         }
     }
 }

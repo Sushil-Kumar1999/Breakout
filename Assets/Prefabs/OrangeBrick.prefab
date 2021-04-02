@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 3277476829096880039}
   - component: {fileID: 6030117167579546828}
   m_Layer: 0
-  m_Name: RedBrick
-  m_TagString: RedBrick
+  m_Name: OrangeBrick
+  m_TagString: OrangeBrick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6b47a274b9cb5c142a5673ce35344e58, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 4df789fc19afe7a4c89ca6f4dbf5adea, type: 3}
+  m_Color: {r: 1, g: 0.5162602, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -121,4 +121,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b34f4e77b744abe409e7df5e9bdfe055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 7
+  points: 5

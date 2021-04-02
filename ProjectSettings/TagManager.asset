@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Border
-  - Brick
   - Paddle
   - Ball
   - Floor
   - Wall
+  - RedBrick
+  - OrangeBrick
   layers:
   - Default
   - TransparentFX
