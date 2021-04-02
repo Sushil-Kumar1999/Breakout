@@ -10,8 +10,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI turnsDisplay;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private int totalTurns;
-    private int numberOfBricks; // number of bricks left in scene
+    [SerializeField] private AudioClip ballHitBrickSFX;
 
+    private AudioSource audioSource;
+
+    private int numberOfBricks; // number of bricks left in scene
     private int currentScore;
     private int turns;
 
@@ -23,20 +26,19 @@ public class GameManager : MonoBehaviour
         turns = totalTurns;
         currentScore = 0;
         numberOfBricks = GameObject.FindGameObjectsWithTag("Brick").Length;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
     {
         BallBehaviour.OnBallHittingFloor += LoseTurn;
-        BallBehaviour.OnBallHittingBrick += UpdateNumberOfBricks;
-        BallBehaviour.OnBallHittingBrick += UpdateScore;
+        BallBehaviour.OnBallHittingBrick += ProcessOnBallHittingBrick;
     }
 
     private void OnDisable()
     {
         BallBehaviour.OnBallHittingFloor -= LoseTurn;
-        BallBehaviour.OnBallHittingBrick -= UpdateNumberOfBricks;
-        BallBehaviour.OnBallHittingBrick -= UpdateScore;
+        BallBehaviour.OnBallHittingBrick -= ProcessOnBallHittingBrick;
     }
 
     // Start is called before the first frame update
@@ -86,7 +88,7 @@ public class GameManager : MonoBehaviour
         gameOverPanel.SetActive(true);
     }
 
-    private void UpdateNumberOfBricks(int points)
+    private void UpdateNumberOfBricks()
     {
         numberOfBricks--;
 
@@ -94,5 +96,18 @@ public class GameManager : MonoBehaviour
         {
             EndGame();
         }
+    }
+
+    private void ProcessOnBallHittingBrick(BrickBehaviour brick)
+    {
+        PlayBallHitBrickSFX();
+        UpdateScore(brick.points);
+        UpdateNumberOfBricks();
+    }
+
+    private void PlayBallHitBrickSFX()
+    {
+        audioSource.clip = ballHitBrickSFX;
+        audioSource.Play();
     }
 }

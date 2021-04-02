@@ -8,7 +8,8 @@ public class BallBehaviour : MonoBehaviour
     public Transform brickShatterEffect;
 
     public static event System.Action OnBallHittingFloor;
-    public static event System.Action<int> OnBallHittingBrick;
+    public static event System.Action<BrickBehaviour> OnBallHittingBrick;
+
 
     private GameManager gameManager;
     private Rigidbody2D ballRigidBody;
@@ -46,7 +47,7 @@ public class BallBehaviour : MonoBehaviour
             Transform explosion = Instantiate(brickShatterEffect, otherCollider.transform.position, otherCollider.transform.rotation);
             Destroy(explosion.gameObject, 2f);
 
-            OnBallHittingBrick?.Invoke(otherCollider.gameObject.GetComponent<BrickBehaviour>().points);
+            OnBallHittingBrick?.Invoke(otherCollider.gameObject.GetComponent<BrickBehaviour>());
 
             Destroy(otherCollider.gameObject);
         }
