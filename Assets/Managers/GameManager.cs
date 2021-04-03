@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     private int currentHighScore;
 
     private const string GameScene = "Game";
-    private const string StartMenu = "Menu";
+    private const string MainMenu = "MainMenu";
 
     private void Awake()
     {
@@ -86,9 +86,9 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(GameScene);
     }
 
-    public void ReturnToStartMenu()
+    public void ReturnToMainMenu()
     {
-        SceneManager.LoadScene(StartMenu);
+        SceneManager.LoadScene(MainMenu);
     }
 
     private void EndGame()
