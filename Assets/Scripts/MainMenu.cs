@@ -3,15 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayGame()
+    public void StartGame()
     {
         Debug.Log("Loading Game scene");
         SceneManager.LoadScene("Game");
     }
 
-    public void QuitGame()
+    public void ExitGame()
     {
-        Debug.Log("Closing application");
+        Debug.Log("Exiting the game");
         Application.Quit();
     }
 }
