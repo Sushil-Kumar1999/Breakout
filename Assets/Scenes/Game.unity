@@ -10800,6 +10800,7 @@ GameObject:
   - component: {fileID: 2014858018}
   - component: {fileID: 2014858019}
   - component: {fileID: 2014858020}
+  - component: {fileID: 2014858021}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -10839,8 +10840,6 @@ MonoBehaviour:
   highScoreDisplay: {fileID: 144143078}
   gameOverPanel: {fileID: 1141422611}
   totalTurns: 3
-  ballHitBrickSFX: {fileID: 8300000, guid: 879ed42b0c784a247aafdbbdf57311d3, type: 3}
-  ballHitPaddleSFX: {fileID: 8300000, guid: 7bdd4a61e678771479c539a9653d548b, type: 3}
 --- !u!82 &2014858020
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10938,6 +10937,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2014858021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014858017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78089e0588555804a866cd58dee7f97d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballHitBrickSFX: {fileID: 8300000, guid: 879ed42b0c784a247aafdbbdf57311d3, type: 3}
+  ballHitPaddleSFX: {fileID: 8300000, guid: 7bdd4a61e678771479c539a9653d548b, type: 3}
+  ballHitFloorSFX: {fileID: 8300000, guid: 9dc9bd27915c5d24487b4c72d12515ba, type: 3}
 --- !u!1001 &2039261454
 PrefabInstance:
   m_ObjectHideFlags: 0

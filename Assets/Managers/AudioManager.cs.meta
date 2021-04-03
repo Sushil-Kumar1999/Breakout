@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 78089e0588555804a866cd58dee7f97d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - ballHitBrickSFX: {instanceID: 0}
+  - ballHitPaddleSFX: {instanceID: 0}
+  - ballHitFloorSFX: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
