@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using Assets.Data.Models;
+using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
 {
     private AudioSource audioSource;
+    private DataManager<Settings> settingsManager;
+    private Settings settings;
 
     [SerializeField] private AudioClip ballHitBrickSFX;
     [SerializeField] private AudioClip ballHitPaddleSFX;
@@ -12,19 +15,37 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+        settingsManager = new DataManager<Settings>("Settings.json");
+        settings = settingsManager.Load();
     }
 
     private void OnEnable()
     {
-        BallBehaviour.OnBallHittingPaddle += PlayBallHitPaddleSFX;
-        BallBehaviour.OnBallHittingBrick += PlayBallHitBrickSFX;
+        if (settings.paddleSfx)
+        {
+            BallBehaviour.OnBallHittingPaddle += PlayBallHitPaddleSFX;
+        }
+
+        if (settings.brickSfx)
+        {
+            BallBehaviour.OnBallHittingBrick += PlayBallHitBrickSFX;
+        }
+        
         BallBehaviour.OnBallHittingFloor += PlayBallHitFloorSFX;
     }
 
     private void OnDisable()
     {
-        BallBehaviour.OnBallHittingPaddle -= PlayBallHitPaddleSFX;
-        BallBehaviour.OnBallHittingBrick -= PlayBallHitBrickSFX;
+        if (settings.paddleSfx)
+        {
+            BallBehaviour.OnBallHittingPaddle -= PlayBallHitPaddleSFX;
+        }
+
+        if (settings.brickSfx)
+        {
+            BallBehaviour.OnBallHittingBrick -= PlayBallHitBrickSFX;
+        }
+
         BallBehaviour.OnBallHittingFloor -= PlayBallHitFloorSFX;
     }
 

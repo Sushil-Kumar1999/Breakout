@@ -10952,6 +10952,7 @@ MonoBehaviour:
   ballHitBrickSFX: {fileID: 8300000, guid: 879ed42b0c784a247aafdbbdf57311d3, type: 3}
   ballHitPaddleSFX: {fileID: 8300000, guid: 7bdd4a61e678771479c539a9653d548b, type: 3}
   ballHitFloorSFX: {fileID: 8300000, guid: 9dc9bd27915c5d24487b4c72d12515ba, type: 3}
+  backgroundMusic: {fileID: 0}
 --- !u!1001 &2039261454
 PrefabInstance:
   m_ObjectHideFlags: 0
