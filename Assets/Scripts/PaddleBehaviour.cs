@@ -30,14 +30,7 @@ public class PaddleBehaviour : MonoBehaviour
 
         transform.Translate(Vector2.right * horizontalMovement * Time.deltaTime * paddleSpeed);
 
-        if (transform.position.x < leftWallPosition)
-        {
-            transform.position = new Vector2(leftWallPosition, transform.position.y);
-        }
-
-        if (transform.position.x > rightWallPosition)
-        {
-            transform.position = new Vector2(rightWallPosition, transform.position.y);
-        }
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, leftWallPosition, rightWallPosition),
+                                         transform.position.y);
     }
 }
