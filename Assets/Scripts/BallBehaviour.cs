@@ -30,7 +30,7 @@ public class BallBehaviour : MonoBehaviour
         {
             return;
         }
-        
+
         if (!ballInPlay)
         {
             transform.position = ballSpawnPosition.position; // respawn on top of paddle

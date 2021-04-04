@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI turnsDisplay;
     [SerializeField] private TextMeshProUGUI highScoreDisplay;
     [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject saveGamePanel;
     [SerializeField] private int totalTurns;
 
     private int numberOfBricks; // number of bricks left in scene
@@ -45,6 +46,14 @@ public class GameManager : MonoBehaviour
     {
         scoreDisplay.text = $"Score: {currentScore}";
         turnsDisplay.text = $"Turns: {turns}";
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            PauseGame();
+        }
     }
 
     private int ComputeNumberOfBricks()
@@ -100,6 +109,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void PauseGame()
+    {
+        saveGamePanel.SetActive(true);
+        Time.timeScale = 0.0f;
+    }
+
+    public void ResumeGame()
+    {
+        saveGamePanel.SetActive(false);
+        Time.timeScale = 1.0f;
+    }
+
     private void ProcessOnBallHittingFloor()
     {
         UpdateTurns(-1);
@@ -119,5 +140,10 @@ public class GameManager : MonoBehaviour
         {
             EndGame();
         }
-    }  
+    } 
+
+    public void SaveGame()
+    {
+        Debug.Log("Saving game");
+    }
 }
