@@ -1,13 +1,12 @@
 ﻿using System;
 
-namespace Assets.Models
+namespace Assets.Data.Models
 {
     [Serializable]
     public class PlayerProfile
     {
         public string playerName;
         public int highScore;
-        public PlayerSettings playerSettings;
     }
 }
 

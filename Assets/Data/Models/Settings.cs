@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Assets.Models
+namespace Assets.Data.Models
 {
     [Serializable]
     public class Settings
