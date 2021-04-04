@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Assets.Data;
+using UnityEngine;
 
-public class DataManager<T>
+public class DataManager<T> where T : IData
 {
     public string FileName { get; }
 

@@ -3,10 +3,11 @@
 namespace Assets.Data.Models
 {
     [Serializable]
-    public class PlayerProfile
+    public class PlayerProfile : IData
     {
         public string playerName;
-        public int highScore;
+        public int currentHighScore;
+        public int previousHighScore;
     }
 }
 
