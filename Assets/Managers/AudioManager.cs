@@ -17,6 +17,12 @@ public class AudioManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         settingsManager = new DataManager<Settings>("Settings.json");
         settings = settingsManager.Load();
+
+        // if background music setting is set to false stop background music
+        if (!settings.backgroundMusic)
+        {
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().Stop();
+        }
     }
 
     private void OnEnable()
