@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 7568718}
   - component: {fileID: 7568717}
   m_Layer: 5
-  m_Name: TurnsDisplay
+  m_Name: LivesDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11583,13 +11583,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: 0
-  gamePaused: 0
   scoreDisplay: {fileID: 1437416797}
-  turnsDisplay: {fileID: 7568717}
+  livesDisplay: {fileID: 7568717}
   highScoreDisplay: {fileID: 144143078}
   gameOverPanel: {fileID: 1141422611}
   saveGamePanel: {fileID: 42732846}
-  totalTurns: 3
+  totalLives: 3
 --- !u!82 &2014858020
 AudioSource:
   m_ObjectHideFlags: 0

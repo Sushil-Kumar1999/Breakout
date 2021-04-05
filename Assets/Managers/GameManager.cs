@@ -7,15 +7,15 @@ public class GameManager : MonoBehaviour
     public bool gameOver;
 
     [SerializeField] private TextMeshProUGUI scoreDisplay;
-    [SerializeField] private TextMeshProUGUI turnsDisplay;
+    [SerializeField] private TextMeshProUGUI livesDisplay;
     [SerializeField] private TextMeshProUGUI highScoreDisplay;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject saveGamePanel;
-    [SerializeField] private int totalTurns;
+    [SerializeField] private int totalLives;
 
     private int numberOfBricks; // number of bricks left in scene
     private int currentScore;
-    private int turns;
+    private int currentLives;
     private int currentHighScore;
 
     private const string GameScene = "Game";
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        turns = totalTurns;
+        currentLives = totalLives;
         currentScore = 0;
         numberOfBricks = ComputeNumberOfBricks();
         currentHighScore = PlayerPrefs.GetInt("HIGH_SCORE");
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         scoreDisplay.text = $"Score: {currentScore}";
-        turnsDisplay.text = $"Turns: {turns}";
+        livesDisplay.text = $"Lives: {currentLives}";
     }
 
     private void Update()
@@ -66,15 +66,15 @@ public class GameManager : MonoBehaviour
 
     public void UpdateTurns(int delta)
     {
-        turns += delta;
+        currentLives += delta;
 
-        if (turns <= 0)
+        if (currentLives <= 0)
         {
-            turns = 0;
+            currentLives = 0;
             EndGame();
         }
 
-        turnsDisplay.text = $"Turns: {turns}";
+        livesDisplay.text = $"Lives: {currentLives}";
     }
 
     public void UpdateScore(int delta)
