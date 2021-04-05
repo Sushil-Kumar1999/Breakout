@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using UnityEngine;
 
-public class FileUtilities : MonoBehaviour
+public class JsonFiles
 {
     public static void WriteToFile(string fileName, string json)
     {
@@ -12,6 +12,8 @@ public class FileUtilities : MonoBehaviour
         {
             writer.Write(json);
         }
+
+        fileStream.Close();
     }
 
     public static string ReadFromFile(string fileName)

@@ -2,7 +2,8 @@
 
 namespace Assets.Data
 {
-    public interface IData
+    [Serializable]
+    public class Data : IData
     {
     }
 }

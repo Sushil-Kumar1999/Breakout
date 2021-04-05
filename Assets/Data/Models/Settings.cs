@@ -1,9 +1,6 @@
-﻿using System;
-
-namespace Assets.Data.Models
+﻿namespace Assets.Data.Models
 {
-    [Serializable]
-    public class Settings : IData
+    public class Settings : Data
     {
         public bool backgroundMusic;
         public bool paddleSfx; // ball hit paddle sound

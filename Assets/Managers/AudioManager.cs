@@ -1,11 +1,12 @@
-﻿using Assets.Data.Models;
+﻿using Assets.Data;
+using Assets.Data.Models;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
 {
     private AudioSource audioSource;
-    private DataManager<Settings> settingsManager;
+    private SettingsManager settingsManager;
     private Settings settings;
 
     [SerializeField] private AudioClip ballHitBrickSFX;
@@ -15,7 +16,7 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-        settingsManager = new DataManager<Settings>("Settings.json");
+        settingsManager = SettingsManager.GetInstance();
         settings = settingsManager.Load();
 
         // if background music setting is set to false stop background music

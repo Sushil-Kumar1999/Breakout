@@ -1,10 +1,11 @@
-﻿using Assets.Data.Models;
+﻿using Assets.Data;
+using Assets.Data.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
-    private DataManager<Settings> settingsManager;
+    private SettingsManager settingsManager;
     private Settings settings;
 
     [SerializeField] private Toggle backgroundMusicToggle;
@@ -13,7 +14,7 @@ public class SettingsMenu : MonoBehaviour
 
     private void Awake()
     {
-        settingsManager = new DataManager<Settings>("Settings.json");
+        settingsManager = SettingsManager.GetInstance();
         settings = settingsManager.Load();
     }
 
