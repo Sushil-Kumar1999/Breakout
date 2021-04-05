@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Assets.Data.Models;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreDisplay;
     [SerializeField] private TextMeshProUGUI livesDisplay;
     [SerializeField] private TextMeshProUGUI highScoreDisplay;
+    [SerializeField] private TMP_InputField labelInputField;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject saveGamePanel;
     [SerializeField] private int totalLives;
@@ -21,12 +24,15 @@ public class GameManager : MonoBehaviour
     private const string GameScene = "Game";
     private const string MainMenu = "MainMenu";
 
+    private SavedGameManager savedGameManager;
+
     private void Awake()
     {
         currentLives = totalLives;
         currentScore = 0;
         numberOfBricks = ComputeNumberOfBricks();
         currentHighScore = PlayerPrefs.GetInt("HIGH_SCORE");
+        savedGameManager = SavedGameManager.GetInstance();
     }
 
     private void OnEnable()
@@ -146,7 +152,17 @@ public class GameManager : MonoBehaviour
 
     public void SaveGame()
     {
-        Debug.Log("Saving game");
+        SavedGame savedGame = new SavedGame();
+        savedGame.label = labelInputField.text;
+        savedGame.score = currentScore;
+        savedGame.hasHighScore = currentScore >= currentHighScore;
+        savedGame.livesRemaining = currentLives;
+        savedGame.bricksRemaining = 2;
+        savedGame.saveTime = DateTime.Now;
+        SavedGameManager.SavedGame = savedGame;
+        savedGameManager.Save();
+
+        Debug.Log("Game saved");
     }
 
     public static void FreezeTime()

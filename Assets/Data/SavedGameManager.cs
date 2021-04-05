@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class SavedGameManager
 {
-    public SavedGame SavedGame { get; set; }
+    // only one instance should exist
+    public static SavedGame SavedGame { get; set; }
 
-    public void Save(SavedGame savedGame)
+    public void Save()
     {
-        FileStream fileStream = new FileStream(GetFilePath(savedGame.label), FileMode.OpenOrCreate);
+        FileStream fileStream = new FileStream(GetFilePath(SavedGame.label), FileMode.OpenOrCreate);
         BinaryFormatter binaryFormatter = new BinaryFormatter();
-        binaryFormatter.Serialize(fileStream, savedGame);
+        binaryFormatter.Serialize(fileStream, SavedGame);
         fileStream.Close();
     }
 
