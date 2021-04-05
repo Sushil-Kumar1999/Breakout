@@ -15,16 +15,14 @@ public class PaddleBehaviour : MonoBehaviour
 
     private void Update()
     {
-        MovePaddle();
+        if (!gameManager.gameOver)
+        {
+            MovePaddle();
+        }
     }
 
     private void MovePaddle()
     {
-        if (gameManager.gameOver)
-        {
-            return;
-        }
-
         float horizontalMovement = Input.GetAxis("Horizontal");
 
         transform.Translate(Vector2.right * horizontalMovement * Time.deltaTime * paddleSpeed);
