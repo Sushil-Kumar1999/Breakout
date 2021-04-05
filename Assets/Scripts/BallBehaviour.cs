@@ -9,6 +9,7 @@ public class BallBehaviour : MonoBehaviour
     public Transform orangeExplosion;
     public Transform greenExplosion;
     public Transform yellowExplosion;
+    public Transform dropItem;
 
     public static event System.Action OnBallHittingPaddle;
     public static event System.Action OnBallHittingFloor;
@@ -47,6 +48,12 @@ public class BallBehaviour : MonoBehaviour
     {
         if (otherCollider.transform.tag.Contains("Brick"))
         {
+            int randomChance = Random.Range(1, 101);
+            if (randomChance < 21)
+            {
+                Instantiate(dropItem, otherCollider.transform.position, otherCollider.transform.rotation);
+            }
+
             CreateExplosion(otherCollider);
             
             OnBallHittingBrick?.Invoke(otherCollider.gameObject.GetComponent<BrickBehaviour>());

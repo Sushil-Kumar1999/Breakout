@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
                GameObject.FindGameObjectsWithTag("YellowBrick").Length;
     }
 
-    public void UpdateTurns(int delta)
+    public void UpdateLives(int delta)
     {
         currentLives += delta;
 
@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
 
     private void ProcessOnBallHittingFloor()
     {
-        UpdateTurns(-1);
+        UpdateLives(-1);
     }
 
     private void ProcessOnBallHittingBrick(BrickBehaviour brick)

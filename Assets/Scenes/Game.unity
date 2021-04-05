@@ -6644,6 +6644,7 @@ GameObject:
   - component: {fileID: 1263827439}
   - component: {fileID: 1263827443}
   - component: {fileID: 1263827441}
+  - component: {fileID: 1263827442}
   m_Layer: 0
   m_Name: Paddle
   m_TagString: Paddle
@@ -6749,6 +6750,27 @@ PolygonCollider2D:
       - {x: 0.52, y: -0.12}
       - {x: 0.52, y: -0.00731007}
       - {x: 0.45480356, y: 0.04701721}
+--- !u!50 &1263827442
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263827438}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!114 &1263827443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11896,6 +11918,8 @@ MonoBehaviour:
   greenExplosion: {fileID: 2376634667693356984, guid: 65314c10a097bd8499669b41f7b9df5e,
     type: 3}
   yellowExplosion: {fileID: 2376634667693356984, guid: 167d6a1b1f1a29f42a3ab9d99e46524c,
+    type: 3}
+  dropItem: {fileID: 8227629486868833954, guid: 00a58981f4ddeac46a2683a5d8f87522,
     type: 3}
 --- !u!1001 &2111951389
 PrefabInstance:
