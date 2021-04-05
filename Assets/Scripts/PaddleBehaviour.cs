@@ -15,10 +15,7 @@ public class PaddleBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if (!gameManager.gameOver)
-        {
-            MovePaddle();
-        }
+        MovePaddle();
     }
 
     private void MovePaddle()

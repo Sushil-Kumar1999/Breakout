@@ -6,6 +6,7 @@ public class MainMenu : MonoBehaviour
     public void NewGame()
     {
         Debug.Log("Beginning new game");
+        GameManager.ResetTimeToNormal();
         SceneManager.LoadScene("Game");
     }
 

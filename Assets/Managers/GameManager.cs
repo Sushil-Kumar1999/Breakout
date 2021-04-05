@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayAgain()
     {
+        ResetTimeToNormal();
         SceneManager.LoadScene(GameScene);
     }
 
@@ -97,6 +98,7 @@ public class GameManager : MonoBehaviour
     {
         gameOver = true;
         gameOverPanel.SetActive(true);
+        FreezeTime();
 
         if (currentScore > currentHighScore)
         {
@@ -112,13 +114,13 @@ public class GameManager : MonoBehaviour
     private void PauseGame()
     {
         saveGamePanel.SetActive(true);
-        Time.timeScale = 0.0f;
+        FreezeTime();
     }
 
     public void ResumeGame()
     {
         saveGamePanel.SetActive(false);
-        Time.timeScale = 1.0f;
+        ResetTimeToNormal();
     }
 
     private void ProcessOnBallHittingFloor()
@@ -145,5 +147,18 @@ public class GameManager : MonoBehaviour
     public void SaveGame()
     {
         Debug.Log("Saving game");
+    }
+
+    public static void FreezeTime()
+    {
+        Time.timeScale = 0.0f;
+    }
+
+    public static void ResetTimeToNormal()
+    {
+        if (Time.timeScale != 1.0f)
+        {
+            Time.timeScale = 1.0f;
+        }
     }
 }
