@@ -7,6 +7,7 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public bool gameOver;
+    public static bool loadFromSavedGame;
 
     [SerializeField] private TextMeshProUGUI scoreDisplay;
     [SerializeField] private TextMeshProUGUI livesDisplay;
@@ -25,9 +26,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        currentLives = totalLives;
-        currentScore = 0;
-        numberOfBricks = ComputeNumberOfBricks();
+        ResetTimeToNormal();
+        InitalizeGame();
         currentHighScore = PlayerPrefs.GetInt("HIGH_SCORE");
         savedGameManager = SavedGameManager.GetInstance();
     }
@@ -57,6 +57,22 @@ public class GameManager : MonoBehaviour
         {
             PauseGame();
         }
+    }
+
+    private void InitalizeGame()
+    {
+        if (loadFromSavedGame)
+        {
+            currentLives = SavedGameManager.SavedGame.livesRemaining;
+            currentScore = SavedGameManager.SavedGame.score;
+            // TODO re construct position of brick of each color
+        } 
+        else
+        {
+            currentLives = totalLives;
+            currentScore = 0;
+        }
+        numberOfBricks = ComputeNumberOfBricks();
     }
 
     private int ComputeNumberOfBricks()

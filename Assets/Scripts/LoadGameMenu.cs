@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LoadGameMenu : MonoBehaviour
@@ -33,6 +34,8 @@ public class LoadGameMenu : MonoBehaviour
     public void RestoreGame()
     {
         Debug.Log("Restoring from save file " + SavedGameManager.SavedGame.label);
+        GameManager.loadFromSavedGame = true;
+        SceneManager.LoadScene(Scenes.GameScene);
     }
 
     private void PopulateDropdownList()
