@@ -167,6 +167,7 @@ public class GameManager : MonoBehaviour
                                   ? savedGame.label
                                   : currentSaveFiles + "," + savedGame.label;
         PlayerPrefs.SetString("SAVE_FILES", updatedSaveFiles);
+        PlayerPrefs.Save();
         Debug.Log("Game saved");
     }
 
