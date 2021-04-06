@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI highScoreDisplay;
     [SerializeField] private TMP_InputField labelInputField;
     [SerializeField] private GameObject gameOverPanel;
-    [SerializeField] private GameObject saveGamePanel;
+    [SerializeField] private GameObject optionsPanel;
     [SerializeField] private int totalLives;
 
     private int numberOfBricks; // number of bricks left in scene
@@ -119,13 +119,13 @@ public class GameManager : MonoBehaviour
 
     private void PauseGame()
     {
-        saveGamePanel.SetActive(true);
+        optionsPanel.SetActive(true);
         FreezeTime();
     }
 
     public void ResumeGame()
     {
-        saveGamePanel.SetActive(false);
+        optionsPanel.SetActive(false);
         ResetTimeToNormal();
     }
 
@@ -162,6 +162,11 @@ public class GameManager : MonoBehaviour
         SavedGameManager.SavedGame = savedGame;
         savedGameManager.Save();
 
+        string currentSaveFiles = PlayerPrefs.GetString("SAVE_FILES", string.Empty);
+        string updatedSaveFiles = string.IsNullOrEmpty(currentSaveFiles)
+                                  ? savedGame.label
+                                  : currentSaveFiles + "," + savedGame.label;
+        PlayerPrefs.SetString("SAVE_FILES", updatedSaveFiles);
         Debug.Log("Game saved");
     }
 

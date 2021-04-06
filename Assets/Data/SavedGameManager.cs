@@ -31,6 +31,6 @@ public class SavedGameManager
 
     private string GetFilePath(string label)
     {
-        return Application.persistentDataPath + "/" + label + ".dat";
+        return Application.persistentDataPath + "/SaveFiles/" + label + ".dat";
     }
 }
