@@ -16,9 +16,9 @@ public class SavedGameManager
         fileStream.Close();
     }
 
-    public void Load(string label)
+    public void Load(string saveName)
     {
-        FileStream fileStream = new FileStream(GetFilePath(label), FileMode.Open);
+        FileStream fileStream = new FileStream(GetFilePath(saveName), FileMode.Open);
         BinaryFormatter binaryFormatter = new BinaryFormatter();
         SavedGame = (SavedGame) binaryFormatter.Deserialize(fileStream);
         fileStream.Close();
@@ -29,8 +29,8 @@ public class SavedGameManager
         return new SavedGameManager();
     }
 
-    private string GetFilePath(string label)
+    private string GetFilePath(string saveName)
     {
-        return Application.persistentDataPath + "/SaveFiles/" + label + ".dat";
+        return Application.persistentDataPath + "/SaveFiles/" + saveName + ".dat";
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Assets.Data.Models
 {
@@ -10,7 +11,7 @@ namespace Assets.Data.Models
         public int score;
         public bool hasHighScore;
         public int livesRemaining;
-        public int bricksRemaining;
+        public List<SerializableVector2> destroyedBrickPositions;
     }
 }
 

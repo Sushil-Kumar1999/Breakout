@@ -33,7 +33,6 @@ public class LoadGameMenu : MonoBehaviour
 
     public void RestoreGame()
     {
-        Debug.Log("Restoring from save file " + SavedGameManager.SavedGame.label);
         GameManager.loadFromSavedGame = true;
         SceneManager.LoadScene(Scenes.GameScene);
     }

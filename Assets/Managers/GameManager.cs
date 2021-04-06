@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using Assets.Data.Models;
 using System;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
     private int currentScore;
     private int currentLives;
     private int currentHighScore;
+    private List<SerializableVector2> hitBrickPositions;
 
     private SavedGameManager savedGameManager;
 
@@ -30,6 +32,7 @@ public class GameManager : MonoBehaviour
         InitalizeGame();
         currentHighScore = PlayerPrefs.GetInt("HIGH_SCORE");
         savedGameManager = SavedGameManager.GetInstance();
+        hitBrickPositions = new List<SerializableVector2>();
     }
 
     private void OnEnable()
@@ -44,7 +47,6 @@ public class GameManager : MonoBehaviour
         BallBehaviour.OnBallHittingBrick -= ProcessOnBallHittingBrick;
     }
 
-    // Start is called before the first frame update
     private void Start()
     {
         scoreDisplay.text = $"Score: {currentScore}";
@@ -65,22 +67,42 @@ public class GameManager : MonoBehaviour
         {
             currentLives = SavedGameManager.SavedGame.livesRemaining;
             currentScore = SavedGameManager.SavedGame.score;
-            // TODO re construct position of brick of each color
+
+            DestroyBricksFromSavedGame();
         } 
         else
         {
             currentLives = totalLives;
             currentScore = 0;
         }
+
         numberOfBricks = ComputeNumberOfBricks();
+    }
+
+    // Recreating the state of bricks by recording position of each destroyed brick in a SavedGame and
+    // destorying those bricks when loading from that SavedGame
+    private void DestroyBricksFromSavedGame()
+    {
+        BrickBehaviour[] brickBehaviours = FindObjectsOfType<BrickBehaviour>();
+        List<GameObject> bricksToBeDestroyed = new List<GameObject>();
+
+        foreach (var pos in SavedGameManager.SavedGame.destroyedBrickPositions)
+        {
+            foreach (var bb in brickBehaviours)
+            {
+                if (bb.gameObject.transform.position.x == pos.x && bb.gameObject.transform.position.y == pos.y)
+                {
+                    bricksToBeDestroyed.Add(bb.gameObject);
+                }
+            }
+        }
+
+        foreach (var brick in bricksToBeDestroyed) { DestroyImmediate(brick); }
     }
 
     private int ComputeNumberOfBricks()
     {
-        return GameObject.FindGameObjectsWithTag("RedBrick").Length +
-               GameObject.FindGameObjectsWithTag("OrangeBrick").Length +
-               GameObject.FindGameObjectsWithTag("GreenBrick").Length +
-               GameObject.FindGameObjectsWithTag("YellowBrick").Length;
+        return FindObjectsOfType<BrickBehaviour>().Length;
     }
 
     public void UpdateLives(int delta)
@@ -149,8 +171,12 @@ public class GameManager : MonoBehaviour
 
     private void ProcessOnBallHittingBrick(BrickBehaviour brick)
     {
+        SerializableVector2 hitBrickPosition = 
+            new SerializableVector2(brick.gameObject.transform.position.x, brick.gameObject.transform.position.y);
+        hitBrickPositions.Add(hitBrickPosition);
+
         UpdateScore(brick.points);
-        UpdateNumberOfBricks();
+        UpdateNumberOfBricks(); 
     }
 
     private void UpdateNumberOfBricks()
@@ -170,7 +196,9 @@ public class GameManager : MonoBehaviour
         savedGame.score = currentScore;
         savedGame.hasHighScore = currentScore >= currentHighScore;
         savedGame.livesRemaining = currentLives;
-        savedGame.bricksRemaining = 2;
+
+        savedGame.destroyedBrickPositions = hitBrickPositions;
+
         savedGame.saveTime = DateTime.Now;
         SavedGameManager.SavedGame = savedGame;
         savedGameManager.Save();
