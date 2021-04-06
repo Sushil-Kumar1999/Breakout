@@ -5,13 +5,6 @@ public class PaddleBehaviour : MonoBehaviour
     [SerializeField] private float paddleSpeed;
     [SerializeField] private float leftWallPosition;
     [SerializeField] private float rightWallPosition;
-    
-    private GameManager gameManager;
-
-    private void Awake()
-    {
-        gameManager = FindObjectOfType<GameManager>();
-    }
 
     private void Update()
     {
