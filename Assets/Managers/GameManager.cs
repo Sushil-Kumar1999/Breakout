@@ -21,9 +21,6 @@ public class GameManager : MonoBehaviour
     private int currentLives;
     private int currentHighScore;
 
-    private const string GameScene = "Game";
-    private const string MainMenu = "MainMenu";
-
     private SavedGameManager savedGameManager;
 
     private void Awake()
@@ -92,12 +89,12 @@ public class GameManager : MonoBehaviour
     public void PlayAgain()
     {
         ResetTimeToNormal();
-        SceneManager.LoadScene(GameScene);
+        SceneManager.LoadScene(Scenes.GameScene);
     }
 
     public void ReturnToMainMenu()
     {
-        SceneManager.LoadScene(MainMenu);
+        SceneManager.LoadScene(Scenes.MainMenu);
     }
 
     private void EndGame()

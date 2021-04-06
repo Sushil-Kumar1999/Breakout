@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Beginning new game");
         GameManager.ResetTimeToNormal();
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(Scenes.GameScene);
     }
 
     public void ExitGame()
