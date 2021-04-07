@@ -32,7 +32,14 @@ public class TutorialManager : MonoBehaviour
 
     private void Start()
     {
-        SetNextTutorial(0);
+        if (GameManager.loadFromSavedGame)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            SetNextTutorial(0);
+        }
     }
 
     private void Update()
@@ -71,7 +78,7 @@ public class TutorialManager : MonoBehaviour
 
     public void CompletedAllTutorials()
     {
-        explanationText.text = "Congratulations! You now know enough to boss this game";
+        explanationText.text = "Get the highest score possible of 480 to win the game.";
     }
 
     public Tutorial GetTutorialByOrder(int order)
