@@ -155,8 +155,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.2, y: 2.2}
-  m_SizeDelta: {x: 675.7152, y: 316.7562}
+  m_AnchoredPosition: {x: -2.2, y: -1.8}
+  m_SizeDelta: {x: 531.9015, y: 212.89072}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7523560
 MonoBehaviour:
@@ -1403,6 +1403,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144143076}
   m_CullTransparentMesh: 0
+--- !u!1 &162900843
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 162900844}
+  - component: {fileID: 162900845}
+  m_Layer: 0
+  m_Name: 1-BallTutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &162900844
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162900843}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1977892087}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &162900845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162900843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835d40ee0b4d84241a12066f42cdc451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  order: 1
+  explanation: Press spacebar to launch the ball
+  keys: 20000000
 --- !u!1001 &167044708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4918,8 +4964,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -420, y: 235}
-  m_SizeDelta: {x: 760, y: 400}
+  m_AnchoredPosition: {x: -320, y: 170}
+  m_SizeDelta: {x: 580.2328, y: 271.0678}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &802333315
 MonoBehaviour:
@@ -4934,7 +4980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.06666667, g: 0.06666667, b: 0.06666667, a: 0.39215687}
+  m_Color: {r: 0.06666667, g: 0.06666667, b: 0.06666667, a: 0}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -6571,9 +6617,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1079981314}
   - component: {fileID: 1079981315}
-  - component: {fileID: 1079981316}
   m_Layer: 0
-  m_Name: PaddleBallTutorial
+  m_Name: 0-PaddleTutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6608,21 +6653,6 @@ MonoBehaviour:
   order: 0
   explanation: Move the paddle sideways with left and right arrow keys.
   keys: 1301000014010000
---- !u!114 &1079981316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1079981313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 835d40ee0b4d84241a12066f42cdc451, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  order: 1
-  explanation: Press spacebar to launch the ball
-  keys: 20000000
 --- !u!1001 &1098593980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13125,6 +13155,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1079981314}
+  - {fileID: 162900844}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
