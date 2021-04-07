@@ -11235,6 +11235,116 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1733675200}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1751494923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1751494924}
+  - component: {fileID: 1751494925}
+  - component: {fileID: 1751494927}
+  - component: {fileID: 1751494926}
+  - component: {fileID: 1751494929}
+  - component: {fileID: 1751494928}
+  m_Layer: 0
+  m_Name: 2-BricksTutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1751494924
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751494923}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1977892087}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1751494925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751494923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01cba6ec01d619c42afa49745347a42d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  order: 2
+  explanation: Earn points by destroying bricks
+  displayDuration: 4.5
+--- !u!114 &1751494926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751494923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01cba6ec01d619c42afa49745347a42d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  order: 4
+  explanation: Destroying a green brick earns you 3 points
+  displayDuration: 4.5
+--- !u!114 &1751494927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751494923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01cba6ec01d619c42afa49745347a42d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  order: 3
+  explanation: Destroying a yellow brick earns you 1 point
+  displayDuration: 4.5
+--- !u!114 &1751494928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751494923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01cba6ec01d619c42afa49745347a42d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  order: 6
+  explanation: Destroying a red brick earns you 7 points
+  displayDuration: 4.5
+--- !u!114 &1751494929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751494923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01cba6ec01d619c42afa49745347a42d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  order: 5
+  explanation: Destroying an orange brick earns you 5 points
+  displayDuration: 4.5
 --- !u!1001 &1762244676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13156,6 +13266,7 @@ Transform:
   m_Children:
   - {fileID: 1079981314}
   - {fileID: 162900844}
+  - {fileID: 1751494924}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

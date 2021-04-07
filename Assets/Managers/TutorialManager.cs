@@ -55,6 +55,7 @@ public class TutorialManager : MonoBehaviour
     {
         SetNextTutorial(currentTutorial.order + 1);
     }
+
     public void SetNextTutorial(int nextOrder)
     {
         currentTutorial = GetTutorialByOrder(nextOrder);

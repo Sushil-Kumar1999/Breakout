@@ -12,5 +12,8 @@ public abstract class Tutorial : MonoBehaviour
         TutorialManager.Instance.tutorials.Add(this);
     }
 
+    /// <summary>
+    /// Called every frame by TutorialManager
+    /// </summary>
     public abstract void CheckIfInProgress();
 }
