@@ -21,8 +21,8 @@ public class PaddleBehaviour : MonoBehaviour
                                          transform.position.y);
     }
 
-    public void UpdateSpeed(float percentage)
+    public void UpdateSpeed(float multiplyFactor)
     {
-        paddleSpeed = paddleSpeed * percentage;
+        paddleSpeed = paddleSpeed * multiplyFactor;
     }
 }

@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-public class SlowSpeed : MonoBehaviour
+public class SpeedChange : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] private float slowByPercent = 0.5f;
+    [SerializeField] private float speedFactor;
 
     private float floorVerticalPosition;
     private PaddleBehaviour paddle;
@@ -28,7 +28,7 @@ public class SlowSpeed : MonoBehaviour
     {
         if (other.transform.CompareTag("Paddle"))
         {
-            paddle.UpdateSpeed(slowByPercent); 
+            paddle.UpdateSpeed(speedFactor);
             Destroy(gameObject);
         }
     }

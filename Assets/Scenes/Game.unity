@@ -13934,6 +13934,8 @@ MonoBehaviour:
     type: 3}
   slowSpeed: {fileID: 8227629486868833954, guid: 61332be126bb9504cb11b020e1b67b23,
     type: 3}
+  fastSpeed: {fileID: 8227629486868833954, guid: 07b122e3aee9dd4468240830a47b30e9,
+    type: 3}
 --- !u!1001 &2111951389
 PrefabInstance:
   m_ObjectHideFlags: 0

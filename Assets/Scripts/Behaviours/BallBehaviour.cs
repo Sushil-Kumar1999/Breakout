@@ -13,6 +13,7 @@ public class BallBehaviour : MonoBehaviour
     public Transform extraLife;
     public Transform instantDeath;
     public Transform slowSpeed;
+    public Transform fastSpeed;
 
     public static event System.Action OnBallHittingPaddle;
     public static event System.Action OnBallHittingFloor;
@@ -51,9 +52,10 @@ public class BallBehaviour : MonoBehaviour
     {
         if (otherCollider.transform.tag.Contains("Brick"))
         {
-            InstantiateDropItem(extraLife, otherCollider.transform.position, otherCollider.transform.rotation, 20);
-            InstantiateDropItem(instantDeath, otherCollider.transform.position, otherCollider.transform.rotation, 15);
-            InstantiateDropItem(slowSpeed, otherCollider.transform.position, otherCollider.transform.rotation, 20);
+            InstantiateDropItem(extraLife, otherCollider.transform.position, otherCollider.transform.rotation, 10);
+            InstantiateDropItem(instantDeath, otherCollider.transform.position, otherCollider.transform.rotation, 20);
+            InstantiateDropItem(slowSpeed, otherCollider.transform.position, otherCollider.transform.rotation, 15);
+            InstantiateDropItem(fastSpeed, otherCollider.transform.position, otherCollider.transform.rotation, 15);
 
             CreateExplosion(otherCollider);
             

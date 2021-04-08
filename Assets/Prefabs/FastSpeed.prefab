@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8227629486868833953}
   - component: {fileID: -2406923732687069358}
   m_Layer: 0
-  m_Name: SlowSpeed
+  m_Name: FastSpeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d64e61e688c5b394984413bdf2676e73, type: 3}
-  m_Color: {r: 1, g: 0.5829255, b: 0.11320752, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 5ee7b72c4b0382c4289dadbfc4a15cb7, type: 3}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -112,4 +112,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2.5
-  speedFactor: 0.7
+  speedFactor: 1.3
