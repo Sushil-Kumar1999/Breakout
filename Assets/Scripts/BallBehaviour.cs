@@ -11,6 +11,7 @@ public class BallBehaviour : MonoBehaviour
     public Transform yellowExplosion;
 
     public Transform extraLife;
+    public Transform instantDeath;
 
     public static event System.Action OnBallHittingPaddle;
     public static event System.Action OnBallHittingFloor;
@@ -49,11 +50,8 @@ public class BallBehaviour : MonoBehaviour
     {
         if (otherCollider.transform.tag.Contains("Brick"))
         {
-            int randomChance = Random.Range(1, 101);
-            if (randomChance < 21)
-            {
-                Instantiate(extraLife, otherCollider.transform.position, otherCollider.transform.rotation);
-            }
+            InstantiateDropItem(extraLife, otherCollider.transform.position, otherCollider.transform.rotation, 20);
+            InstantiateDropItem(instantDeath, otherCollider.transform.position, otherCollider.transform.rotation, 15);
 
             CreateExplosion(otherCollider);
             
@@ -99,6 +97,15 @@ public class BallBehaviour : MonoBehaviour
                 Transform yellowColouredExplosion = Instantiate(yellowExplosion, otherCollider.transform.position, otherCollider.transform.rotation);
                 Destroy(yellowColouredExplosion.gameObject, 2f);
                 break;
+        }
+    }
+
+    private void InstantiateDropItem(Transform dropItem, Vector3 position, Quaternion rotation, int maxChance)
+    {
+        int randomChance = Random.Range(1, 101);
+        if (randomChance <= maxChance)
+        {
+            Instantiate(dropItem, position, rotation);
         }
     }
 }
