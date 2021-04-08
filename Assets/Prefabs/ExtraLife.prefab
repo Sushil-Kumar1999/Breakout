@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8227629486868833953}
   - component: {fileID: 8227629486868833952}
   m_Layer: 0
-  m_Name: Drop
+  m_Name: ExtraLife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a578d8cdd989be34a9a280c183fcc0b7, type: 3}
-  m_Color: {r: 0.044054817, g: 0.76250476, b: 0.9339623, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 5ee7b72c4b0382c4289dadbfc4a15cb7, type: 3}
+  m_Color: {r: 0.20880078, g: 0.73333335, b: 0.066037714, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

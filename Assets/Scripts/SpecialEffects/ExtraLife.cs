@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class DropItemBehaviour : MonoBehaviour
+public class ExtraLife : MonoBehaviour
 {
     [SerializeField] private float speed;
 

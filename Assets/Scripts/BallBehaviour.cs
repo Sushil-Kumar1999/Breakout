@@ -9,7 +9,8 @@ public class BallBehaviour : MonoBehaviour
     public Transform orangeExplosion;
     public Transform greenExplosion;
     public Transform yellowExplosion;
-    public Transform dropItem;
+
+    public Transform extraLife;
 
     public static event System.Action OnBallHittingPaddle;
     public static event System.Action OnBallHittingFloor;
@@ -51,7 +52,7 @@ public class BallBehaviour : MonoBehaviour
             int randomChance = Random.Range(1, 101);
             if (randomChance < 21)
             {
-                Instantiate(dropItem, otherCollider.transform.position, otherCollider.transform.rotation);
+                Instantiate(extraLife, otherCollider.transform.position, otherCollider.transform.rotation);
             }
 
             CreateExplosion(otherCollider);

@@ -13928,7 +13928,7 @@ MonoBehaviour:
     type: 3}
   yellowExplosion: {fileID: 2376634667693356984, guid: 167d6a1b1f1a29f42a3ab9d99e46524c,
     type: 3}
-  dropItem: {fileID: 8227629486868833954, guid: 00a58981f4ddeac46a2683a5d8f87522,
+  extraLife: {fileID: 8227629486868833954, guid: 00a58981f4ddeac46a2683a5d8f87522,
     type: 3}
 --- !u!1001 &2111951389
 PrefabInstance:
