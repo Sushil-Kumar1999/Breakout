@@ -52,8 +52,8 @@ public class BallBehaviour : MonoBehaviour
     {
         if (otherCollider.transform.tag.Contains("Brick"))
         {
-            InstantiateDropItem(extraLife, otherCollider.transform.position, otherCollider.transform.rotation, 10);
-            InstantiateDropItem(instantDeath, otherCollider.transform.position, otherCollider.transform.rotation, 20);
+            InstantiateDropItem(extraLife, otherCollider.transform.position, otherCollider.transform.rotation, 15);
+            InstantiateDropItem(instantDeath, otherCollider.transform.position, otherCollider.transform.rotation, 10);
             InstantiateDropItem(slowSpeed, otherCollider.transform.position, otherCollider.transform.rotation, 15);
             InstantiateDropItem(fastSpeed, otherCollider.transform.position, otherCollider.transform.rotation, 15);
 
