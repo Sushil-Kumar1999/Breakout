@@ -20,4 +20,9 @@ public class PaddleBehaviour : MonoBehaviour
         transform.position = new Vector2(Mathf.Clamp(transform.position.x, leftWallPosition, rightWallPosition),
                                          transform.position.y);
     }
+
+    public void UpdateSpeed(float percentage)
+    {
+        paddleSpeed = paddleSpeed * percentage;
+    }
 }

@@ -12,6 +12,7 @@ public class BallBehaviour : MonoBehaviour
 
     public Transform extraLife;
     public Transform instantDeath;
+    public Transform slowSpeed;
 
     public static event System.Action OnBallHittingPaddle;
     public static event System.Action OnBallHittingFloor;
@@ -52,6 +53,7 @@ public class BallBehaviour : MonoBehaviour
         {
             InstantiateDropItem(extraLife, otherCollider.transform.position, otherCollider.transform.rotation, 20);
             InstantiateDropItem(instantDeath, otherCollider.transform.position, otherCollider.transform.rotation, 15);
+            InstantiateDropItem(slowSpeed, otherCollider.transform.position, otherCollider.transform.rotation, 20);
 
             CreateExplosion(otherCollider);
             

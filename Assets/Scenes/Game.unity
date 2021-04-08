@@ -13932,6 +13932,8 @@ MonoBehaviour:
     type: 3}
   instantDeath: {fileID: 8227629486868833954, guid: e7aeaaa8172c4d744bac1a40474c6f02,
     type: 3}
+  slowSpeed: {fileID: 8227629486868833954, guid: 61332be126bb9504cb11b020e1b67b23,
+    type: 3}
 --- !u!1001 &2111951389
 PrefabInstance:
   m_ObjectHideFlags: 0
