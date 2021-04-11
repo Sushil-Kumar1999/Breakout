@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Assets.Data.Models
 {
@@ -12,6 +13,11 @@ namespace Assets.Data.Models
         {
             x = xPos;
             y = yPos;
+        }
+
+        public Vector2 GetVector2()
+        {
+            return new Vector2(x, y);
         }
     }
 }
