@@ -29,44 +29,34 @@ public class AudioManager : MonoBehaviour
 
     private void OnEnable()
     {
-        if (settings.paddleSfx)
-        {
-            BallBehaviour.OnBallHittingPaddle += PlayBallHitPaddleSFX;
-        }
-
-        if (settings.brickSfx)
-        {
-            BallBehaviour.OnBallHittingBrick += PlayBallHitBrickSFX;
-        }
-        
+        BallBehaviour.OnBallHittingPaddle += PlayBallHitPaddleSFX; 
+        BallBehaviour.OnBallHittingBrick += PlayBallHitBrickSFX;
         BallBehaviour.OnBallHittingFloor += PlayBallHitFloorSFX;
     }
 
     private void OnDisable()
     {
-        if (settings.paddleSfx)
-        {
-            BallBehaviour.OnBallHittingPaddle -= PlayBallHitPaddleSFX;
-        }
-
-        if (settings.brickSfx)
-        {
-            BallBehaviour.OnBallHittingBrick -= PlayBallHitBrickSFX;
-        }
-
+        BallBehaviour.OnBallHittingPaddle -= PlayBallHitPaddleSFX;
+        BallBehaviour.OnBallHittingBrick -= PlayBallHitBrickSFX;
         BallBehaviour.OnBallHittingFloor -= PlayBallHitFloorSFX;
     }
 
     private void PlayBallHitBrickSFX(BrickBehaviour brick)
     {
-        audioSource.clip = ballHitBrickSFX;
-        audioSource.Play();
+        if (settings.brickSfx)
+        {
+            audioSource.clip = ballHitBrickSFX;
+            audioSource.Play();
+        }
     }
 
     private void PlayBallHitPaddleSFX()
     {
-        audioSource.clip = ballHitPaddleSFX;
-        audioSource.Play();
+        if (settings.paddleSfx)
+        {
+            audioSource.clip = ballHitPaddleSFX;
+            audioSource.Play();
+        }
     }
 
     private void PlayBallHitFloorSFX()
