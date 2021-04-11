@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip ballHitBrickSFX;
     [SerializeField] private AudioClip ballHitPaddleSFX;
     [SerializeField] private AudioClip ballHitFloorSFX;
+    [SerializeField] private GameObject mainCamera;
 
     private void Awake()
     {
@@ -22,7 +23,7 @@ public class AudioManager : MonoBehaviour
         // if background music setting is set to false stop background music
         if (!settings.backgroundMusic)
         {
-            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().Stop();
+            mainCamera.GetComponent<AudioSource>().Stop();
         }
     }
 
