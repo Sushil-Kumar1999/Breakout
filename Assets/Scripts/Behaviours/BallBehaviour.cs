@@ -39,13 +39,17 @@ public class BallBehaviour : MonoBehaviour
         if (!ballInPlay)
         {
             transform.position = ballSpawnPosition.position; // respawn on top of paddle
-        }
+        } 
+    }
 
-        if (Input.GetButtonDown("Jump") && !ballInPlay) // if spacebar is pressed while ball is resting on paddle
+    private void FixedUpdate()
+    {
+        // if spacebar is pressed while ball is resting on paddle
+        if (Input.GetButtonDown("Jump") && !ballInPlay) 
         {
             ballInPlay = true;
             ballRigidBody.AddForce(Vector2.up * ballLaunchForce);
-        }   
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D otherCollider)
